@@ -1,0 +1,47 @@
+.container{
+    display:grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.header{
+    grid-column: 2/5;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.top,
+.under-top{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.top img{
+    border-radius: 1em;
+    max-width:50px;
+}
+
+.username{
+    font-weight: bold;
+}
+
+button:hover{
+    cursor:pointer;
+}
+
+.under-top img{
+    max-width: 100px;
+    border-radius: 2em;
+}
+
+.sidebar{
+    grid-row: 1 /5;
+    background: radial-gradient(circle at center, navy 30%, rgb(39, 1, 57) 100%);
+    
+}
+
+.sidebar *{
+    color:white;
+}
