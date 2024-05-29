@@ -1,5 +1,6 @@
 body{
-    margin:0
+    margin:0;
+    font-family: "Roboto", sans-serif;
 }
 
 .container{
@@ -8,6 +9,7 @@ body{
     grid-template-areas:
     "sidebar header"
     "sidebar main ";
+    height:100vh;
 }
 
 .header{
@@ -15,6 +17,8 @@ body{
     display: grid;
     grid-template-rows: 1fr 1fr;
     padding-bottom: 10px;
+    background-color: #212A31;
+    z-index: 1;
 }
 
 .top,
@@ -23,7 +27,7 @@ body{
     gap: 10px; 
     justify-content: center; 
     align-items: center; 
-    padding:0 20px;
+    padding:0 40px;
 }
 
 li{
@@ -34,21 +38,34 @@ li{
     grid-template-columns: 3fr 1fr;
 }
 .under-top{
-    grid-template-columns: 1fr 3fr 3fr;
+    grid-template-columns: 1fr 2fr ;
 }
 
 .top input[type="text"]{
-    width:60%;
+    width:50%;
 }
 
 .under-top>div:last-child{
     justify-self: end;
 }
 
+.under-top>div:first-child{
+    display: flex;
+    align-items: center;
+    gap:10px;
+
+}
+
 #top-right{
     display: flex;
     gap:10px;
     align-items: center;
+    text-align: end;
+    justify-self: end;
+}
+
+#top-right p{
+    cursor: pointer;
 }
 
 .top img{
@@ -65,32 +82,42 @@ button:hover{
 }
 
 .under-top img{
-    max-width: 100px;
+    max-width: 80px;
     border-radius: 2em;
 }
 
 .sidebar{
     grid-area: sidebar;
-    background: radial-gradient(circle at center, navy 30%, rgb(39, 1, 57) 100%);
+    background: radial-gradient(circle at bottom, #124E66,#212A31);
+    background-color: #124E66;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap:200px;
+    align-items: flex-start;
+    gap:40px;
+    padding-left:10px;
+    font-weight: bolder;
 }
 
-.sidebar *{
-    color:white;
+.sidebar li{
+    font-size: larger;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.sidebar *,
+body *{
+    color:#D3D9D4;
 }
 
 .main-content{
     grid-area: main;
     display: grid;
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 1fr;
     grid-template-areas: 
     "projects anno"
     "projects trending";
-    background-color: rgba(40, 51, 68,0.2);
+    background:radial-gradient(circle at bottom,#124E66,#2E3944);
+    font-size: 12px;
 }
 
 .projects{
@@ -98,7 +125,7 @@ button:hover{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(300px,3fr));
     grid-template-rows: 0.05fr;
-    grid-auto-rows: minmax(30px,15%);
+    grid-auto-rows: min-content;
     padding: 0 20px;
     gap:20px;
 }
@@ -108,8 +135,8 @@ button:hover{
 }
 
 .card{
-    padding:20px;
-    background-color:white;
+    padding:0 20px 20px 20px;
+    background-color: #124E66;
     border-radius: 2rem;
 }
 
@@ -117,11 +144,12 @@ button:hover{
 .announcements>div,
 .trending>div,
 .header{
-    box-shadow: 2px 2px 2px rgba(128, 128, 128,0.3);
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
 }
 
 .card-icons{
     text-align: right;
+    cursor: pointer;
 }
 
 .announcements{
@@ -140,7 +168,7 @@ button:hover{
 
 .announcements>div,
 .trending>div{
-    background-color: white;
+    background-color: #212A31;
     padding:20px;
     margin-right:20px;
     border-radius: 2rem;
@@ -155,4 +183,26 @@ button:hover{
     height:50px;
     object-fit: cover;
     border-radius: 2rem;
+}
+
+.users{
+    display: flex;
+    align-items: center;
+}
+
+.users img{
+    margin-right:10px;
+}
+
+.header-buttons{
+    background-color: #124E66;
+    border-radius: 2rem;
+    width: 120px;
+    height:30px;
+}
+
+.header-buttons,
+.card{
+    border-color: rebeccapurple;
+    border-style: outset;
 }
