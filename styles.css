@@ -1,21 +1,54 @@
+body{
+    margin:0
+}
+
 .container{
     display:grid;
     grid-template-columns: 1fr 4fr;
+    grid-template-areas:
+    "sidebar header"
+    "sidebar main ";
 }
 
 .header{
-    grid-column: 2/5;
+    grid-area: header;
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding-bottom: 10px;
 }
 
 .top,
 .under-top{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 10px; 
     justify-content: center; 
     align-items: center; 
+    padding:0 20px;
+}
+
+li{
+    list-style: none;
+}
+
+.top{
+    grid-template-columns: 3fr 1fr;
+}
+.under-top{
+    grid-template-columns: 1fr 3fr 3fr;
+}
+
+.top input[type="text"]{
+    width:60%;
+}
+
+.under-top>div:last-child{
+    justify-self: end;
+}
+
+#top-right{
+    display: flex;
+    gap:10px;
+    align-items: center;
 }
 
 .top img{
@@ -37,11 +70,89 @@ button:hover{
 }
 
 .sidebar{
-    grid-row: 1 /5;
+    grid-area: sidebar;
     background: radial-gradient(circle at center, navy 30%, rgb(39, 1, 57) 100%);
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:200px;
 }
 
 .sidebar *{
     color:white;
+}
+
+.main-content{
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "projects anno"
+    "projects trending";
+    background-color: rgba(40, 51, 68,0.2);
+}
+
+.projects{
+    grid-area: projects;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,3fr));
+    grid-template-rows: 0.05fr;
+    grid-auto-rows: minmax(30px,15%);
+    padding: 0 20px;
+    gap:20px;
+}
+
+.projects>div:first-child{
+    grid-column: 1/-1;
+}
+
+.card{
+    padding:20px;
+    background-color:white;
+    border-radius: 2rem;
+}
+
+.card,
+.announcements>div,
+.trending>div,
+.header{
+    box-shadow: 2px 2px 2px rgba(128, 128, 128,0.3);
+}
+
+.card-icons{
+    text-align: right;
+}
+
+.announcements{
+    grid-area: anno;
+}
+
+.announcements>div{
+    display: grid;
+    gap:10px;
+}
+
+.announcements>div>div:nth-child(2),
+.announcements>div>div:nth-child(1){
+    border-bottom: 1px solid grey;
+}
+
+.announcements>div,
+.trending>div{
+    background-color: white;
+    padding:20px;
+    margin-right:20px;
+    border-radius: 2rem;
+}
+
+.trending{
+    grid-area: trending;
+}
+
+.trending img{
+    width:50px;
+    height:50px;
+    object-fit: cover;
+    border-radius: 2rem;
 }
